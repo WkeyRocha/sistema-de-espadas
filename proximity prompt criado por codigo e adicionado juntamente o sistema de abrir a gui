@@ -7,7 +7,7 @@ lojaGui.Enabled = false
 local prompt = Instance.new("ProximityPrompt")
 prompt.Parent = partComprar
 prompt.ActionText = "abrir loja"
-prompt.ObjectText = "compraer itens"
+prompt.ObjectText = "comprar itens"
 
 prompt.Triggered:Connect(function()
 	lojaGui.Enabled = not lojaGui.Enabled  
