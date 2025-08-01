@@ -1,0 +1,12 @@
+local Players = game:GetService("Players")
+local DINHEIRO_INICIAL = 100
+local PRECO_ESPADA = 50
+
+Players.PlayerAdded:Connect(function(player)
+	local dinheiro = Instance.new("IntValue")
+	dinheiro.Name = "Dinheiro"
+	dinheiro.Value = DINHEIRO_INICIAL
+	dinheiro.Parent = player
+
+	player:WaitForChild("PlayerGui"):WaitForChild("ScreenGui"):WaitForChild("dinheirolabel").Text = "R$ "..dinheiro.Value
+end)
