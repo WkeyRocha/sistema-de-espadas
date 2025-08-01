@@ -1,0 +1,24 @@
+local player = game.Players.LocalPlayer
+local lojaGui = player.PlayerGui:WaitForChild("loja")
+local partComprar = workspace:WaitForChild("PartComprar")
+
+lojaGui.Enabled = false
+
+local prompt = Instance.new("ProximityPrompt")
+prompt.Parent = partComprar
+prompt.ActionText = "abrir loja"
+prompt.ObjectText = "compraer itens"
+
+prompt.Triggered:Connect(function()
+	lojaGui.Enabled = not lojaGui.Enabled  
+end)
+
+prompt.PromptButtonHoldBegan:Connect(function()
+	lojaGui.Enabled = true
+end)
+
+prompt.PromptButtonHoldEnded:Connect(function()
+	if (player.Character.HumanoidRootPart.Position - partComprar.Position).Magnitude > 10 then
+		lojaGui.Enabled = false
+	end
+end)
